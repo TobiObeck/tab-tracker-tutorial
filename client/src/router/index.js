@@ -5,17 +5,19 @@ import Register from '@/components/Register';
 
 Vue.use(Router);
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/register',
-      name: 'Register',
-      component: Register
-    }
-  ]
-});
+export default new Router(
+  {
+    routes:     [
+      {
+        path: '/',
+        name: 'HelloWorld',
+        component: HelloWorld
+      },
+      {
+        path: '/register',
+        name: 'Register',
+        component: Register
+      }
+    ]
+  }
+);
