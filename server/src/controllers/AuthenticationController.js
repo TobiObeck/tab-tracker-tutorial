@@ -1,12 +1,15 @@
-//const { User } = require('../models')
+// desctructures the dynamically created user property from index.js
+const {User} = require('../models') 
 
 module.exports = {
-    register (req, res){
-        //const user = await
-
-        var username = req.body.email.split('@')[0];
-        res.send({        
-            message: `Hello ${username}! Your user was registered! Have fun!`
-        });
+    async register (req, res){
+        try {
+            const user = await User .create(req.body);
+            res.send(user.toJSON());            
+        } catch(error){
+            res.status(400).send({
+                error: 'This email account is already in use.' + error
+            })
+        }
     }
 }
