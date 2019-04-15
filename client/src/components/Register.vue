@@ -85,8 +85,4 @@ input{
   padding: 4px;
   margin: 6px;
 }
-.error{
-  color: #fff;
-  font-weight: 600;  
-}
 </style>
