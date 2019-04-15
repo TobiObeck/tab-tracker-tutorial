@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">-->
-    <router-view/>
+    <v-app>
+      <TheHeader />
+      <main>
+        <v-container fluid>
+          <router-view/>
+        </v-container>
+      </main> 
+    </v-app>
   </div>
 </template>
 <script>
+import TheHeader from '@/components/TheHeader.vue'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    TheHeader
+  }
 };
 </script>
 

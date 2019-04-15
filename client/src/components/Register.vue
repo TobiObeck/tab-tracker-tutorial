@@ -3,18 +3,39 @@
     <v-flex xs6 offset-xs3>
       <div class="white elevation-2">        
         <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
+          <v-toolbar-title>Register</v-toolbar-title>          
         </v-toolbar>
         <div class="pl-4 pr-4 pt-2 pb-2">
           <h1>Register</h1>
+  
+            <v-text-field 
+              label="Email"
+              v-model="email"
+            ></v-text-field>
+           
+            <v-text-field 
+              label="password"
+              @keydown.enter="register"
+              type="password" name="password" 
+              placeholder="password"
+              v-model="password"
+            ></v-text-field>      
 
-          <input type="email" name="email" placeholder="email" v-model="email">
-          <br/>
-          <input @keydown.enter="register" type="password" name="password" placeholder="password" v-model="password">
-          <br/>
-          <div v-if="isError" class="error">{{ errorMessage }}</div>
+          <v-btn
+           @click="register"
+           dark
+           class="cyan"
+           >Register</v-btn>
 
-          <button @click="register">Register</button>            
+          <v-alert
+            :value="errorMessage"
+            type="error"
+            transition="scale-transition"
+            icon="new_releases"            
+          >
+            {{ errorMessage }}
+          </v-alert>
+
         </div>
       </div>
     </v-flex>
@@ -30,7 +51,8 @@ export default {
     return {
       email: '',
       password: '',
-      errorMessage: null
+      errorMessage: null,
+      alert
     };
   },
   computed:{
@@ -64,7 +86,7 @@ input{
   margin: 6px;
 }
 .error{
-  color: #ee0000;
-  background-color: #808080;  
+  color: #fff;
+  font-weight: 600;  
 }
 </style>
