@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <v-app>
-      <TheHeader />
+      <TheHeader/>
       <main>
         <v-container fluid>
           <router-view/>
         </v-container>
-      </main> 
+      </main>
     </v-app>
   </div>
 </template>
 <script>
-import TheHeader from '@/components/TheHeader.vue'
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import TheHeader from "@/components/TheHeader.vue";
+import "material-design-icons-iconfont/dist/material-design-icons.css";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TheHeader
   }
@@ -24,7 +24,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
