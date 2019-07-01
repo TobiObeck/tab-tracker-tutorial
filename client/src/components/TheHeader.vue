@@ -4,19 +4,19 @@
       <span class="home" @click="$router.push({ 'name': 'root' });">Tab tracker</span>
     </v-toolbar-title>
 
-    <v-toobar-items>
+    <v-toolbar-items>
       <v-btn flat dark to="/">Home</v-btn>
       <!-- <v-btn flat dark>
                 Browse
       </v-btn>-->
-    </v-toobar-items>
+    </v-toolbar-items>
 
     <v-spacer></v-spacer>
 
-    <v-toobar-items>
+    <v-toolbar-items>
       <v-btn flat dark to="register">Sign Up</v-btn>
-      <v-btn flat dark>Log In</v-btn>
-    </v-toobar-items>
+      <v-btn flat dark to="login">Log In</v-btn>
+    </v-toolbar-items>
   </v-toolbar>
 </template>
 
