@@ -1,5 +1,14 @@
 // desctructures the dynamically created user property from index.js
-const { User } = require('../models')
+const { User } = require('../models');
+const jwt = require('jsonwebtoken');
+const config = require('../config/config');
+
+function jwtSignUser(user) {
+    const ONE_WEEK = 60 * 60 * 24 * 7;
+    return jwt.sign(user, config.authentication.jwtSectret, {
+        expiresIn: ONE_WEEK
+    })
+}
 
 module.exports = {
     async register(req, res) {
@@ -8,7 +17,7 @@ module.exports = {
             res.send(user.toJSON());
         } catch (error) {
             res.status(400).send({
-                error: 'This email account is already in use.' + error
+                error: 'This email account is already in use. ' + error
             })
         }
     },
@@ -36,7 +45,8 @@ module.exports = {
 
             const userJson = user.toJSON();
             res.send({
-                user: userJson
+                user: userJson,
+                token: jwtSignUser(userJson)
             });
         } catch (error) {
             res.status(500).send({
