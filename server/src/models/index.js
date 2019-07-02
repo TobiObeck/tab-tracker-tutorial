@@ -21,7 +21,7 @@ fs
         const model = sequelize.import(path.join(__dirname, file))
         db[model.name] = model
     })
-        
+
 db.sequelize = sequelize
 db.Sequilize = Sequelize
 
