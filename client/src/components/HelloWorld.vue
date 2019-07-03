@@ -2,6 +2,15 @@
   <div class="hello">
     <h1>Welcome{{$store.state.user? ' ' + $store.state.user.email : '' }}!</h1>
     {{ $store.state.user? $store.state.user : '' }}
+    <br />
+    count: {{ $store.state.count }}
+    <br />
+    delay: {{ $store.state.delay }}
+    <br />
+    <v-btn @click="$store.dispatch('setIncrementCount')">+1</v-btn>
+
+    <v-btn @click="$store.dispatch('setDecrementCount')">-1</v-btn>
+    <v-btn @click="$store.commit('setResetCount')">Reset</v-btn>
   </div>
 </template>
 

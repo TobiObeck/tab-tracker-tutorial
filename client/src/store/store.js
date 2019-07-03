@@ -9,7 +9,9 @@ export default new Vuex.Store({
     state: {
         token: null,
         user: null,
-        isUserLoggedIn: false
+        isUserLoggedIn: false,
+        count: 0,
+        delay: 0
     },
     mutations: {
         setLogOut(state) {
@@ -23,6 +25,15 @@ export default new Vuex.Store({
         },
         setUser(state, user) {
             state.user = user;
+        },
+        setResetCount(state) {
+            state.count = 0;
+        },
+        setIncrementCountBy(state, change) {
+            state.count += change;
+        },
+        setChangeDelay(state, delay) {
+            state.delay = delay;
         }
     },
     actions: {
@@ -31,7 +42,24 @@ export default new Vuex.Store({
         },
         setUser({ commit }, user) {
             commit('setUser', user)
-        }
+        },
+        setIncrementCount({ commit }) {
+            const delay = Math.floor(Math.random() * 100) >= 50 ? 2000 * 1 : 0;
 
+            commit('setChangeDelay', delay);
+
+            setTimeout(function () {
+                commit('setIncrementCountBy', 1);
+            }, delay);
+        },
+        setDecrementCount({ commit }) {
+            const delay = Math.floor(Math.random() * 100) >= 50 ? 2000 * 1 : 0;
+
+            commit('setChangeDelay', delay);
+
+            setTimeout(function () {
+                commit('setIncrementCountBy', -1);
+            }, delay);
+        }
     }
 })
