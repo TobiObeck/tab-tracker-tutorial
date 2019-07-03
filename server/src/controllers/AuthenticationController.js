@@ -16,6 +16,7 @@ module.exports = {
         try {
             const user = await User.create(req.body);
             const userJson = user.toJSON();
+            delete userJson.password;
             res.send({
                 user: userJson,
                 token: jwtSignUser(userJson)
@@ -50,12 +51,10 @@ module.exports = {
                     error: 'The login information was incorrect.'
                 })
             }
-            // const kp1 = Object.assign({}, user);
-            // console.log('send send send', user.password, kp1.password, kp1.email);
-            // delete user.password;
-            // const kp = Object.assign({}, user);
-            // console.log('send send send', user.password, kp.password, kp.email);
+
             const userJson = user.toJSON();
+            delete userJson.password;
+
             res.send({
                 user: userJson,
                 token: jwtSignUser(userJson)

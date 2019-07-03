@@ -21,9 +21,13 @@ module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         email: {
             type: DataTypes.STRING,
-            unique: true
+            unique: true,
+            allowNull: false
         },
-        password: DataTypes.STRING
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     }, {
             hooks: {
                 beforeCreate: hashPasswordHook,
