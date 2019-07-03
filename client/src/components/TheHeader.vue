@@ -16,7 +16,7 @@
     <v-toolbar-items>
       <v-btn v-if="!$store.state.isUserLoggedIn" flat dark to="register">Sign Up</v-btn>
       <v-btn v-if="!$store.state.isUserLoggedIn" flat dark to="login">Log In</v-btn>
-      <v-btn v-else flat dark to="login" @click="$store.dispatch('setToken', null);">Log Out</v-btn>
+      <v-btn v-else flat dark to="login" @click="$store.commit('setLogOut');">Log Out</v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>
