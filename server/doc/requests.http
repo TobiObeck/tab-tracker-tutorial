@@ -5,14 +5,14 @@ POST http://localhost:8081/register
 Content-Type: application/json
 
 {
-    "email": "testing@gmail.com",
-    "password": "12345678!aA"
+    "email": "6Abc123!@a.de",
+    "password": "6Abc123!@a.de"
 }
 
 POST http://localhost:8081/login
 Content-Type: application/json
 
 {
-    "email": "testing@gmail.com",
-    "password": "12345678!aA"
+    "email": "6Abc123!@a.de",
+    "password": "6Abc123!@a.de"
 }
