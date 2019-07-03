@@ -5,11 +5,16 @@ import App from './App';
 import router from './router';
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 
+import store from '@/store/store';
+import { sync } from 'vuex-router-sync';
+
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify, {
   iconfont: 'mdi' // 'md' || 'mdi' || 'fa' || 'fa4'
 })
+
+sync(store, router)
 
 Vue.config.productionTip = false;
 
@@ -17,6 +22,7 @@ Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 });

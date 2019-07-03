@@ -57,9 +57,12 @@ export default {
           password: this.password
         });
 
-        this.errorMessage = null;
+        console.log(response, response.data.token, response.data.user);
 
-        console.log(response.data);
+        this.$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch("setUser", response.data.user);
+
+        this.errorMessage = null;
       } catch (error) {
         console.log("error", error);
         this.errorMessage = error.response.data.error;
