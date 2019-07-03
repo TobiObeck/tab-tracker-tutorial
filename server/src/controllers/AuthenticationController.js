@@ -23,8 +23,9 @@ module.exports = {
             });
         } catch (error) {
             res.status(400).send({
-                error: 'This email account is already in use. ' + error
+                error: 'This email account is already in use.'
             })
+            return;
         }
     },
     async login(req, res) {
@@ -40,6 +41,7 @@ module.exports = {
                 res.status(403).send({
                     error: 'The login information was incorrect.'
                 })
+                return;
             }
 
             console.log('user', user.email);
@@ -50,6 +52,7 @@ module.exports = {
                 res.status(403).send({
                     error: 'The login information was incorrect.'
                 })
+                return;
             }
 
             const userJson = user.toJSON();
@@ -62,7 +65,8 @@ module.exports = {
         } catch (error) {
             res.status(500).send({
                 error: 'An error has occured trying to login' + error
-            })
+            });
+            return;
         }
     }
 }
