@@ -2,10 +2,6 @@
   <div class="hello">
     <h1>Welcome{{$store.state.user? ' ' + $store.state.user.email : '' }}!</h1>
     {{ $store.state.user? $store.state.user : '' }}
-    <br />
-    count: {{ $store.state.count }}
-    <br />
-    delay: {{ $store.state.delay }}
   </div>
 </template>
 
