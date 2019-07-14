@@ -6,11 +6,6 @@
     count: {{ $store.state.count }}
     <br />
     delay: {{ $store.state.delay }}
-    <br />
-    <v-btn @click="$store.dispatch('setIncrementCount')">+1</v-btn>
-
-    <v-btn @click="$store.dispatch('setDecrementCount')">-1</v-btn>
-    <v-btn @click="$store.commit('setResetCount')">Reset</v-btn>
   </div>
 </template>
 
