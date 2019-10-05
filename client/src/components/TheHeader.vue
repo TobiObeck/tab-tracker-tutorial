@@ -6,6 +6,7 @@
 
     <v-toolbar-items>
       <v-btn flat dark to="/">Home</v-btn>
+      <v-btn flat dark to="songs">Songs</v-btn>
       <!-- <v-btn flat dark>
                 Browse
       </v-btn>-->
